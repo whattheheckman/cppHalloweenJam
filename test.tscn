@@ -6,10 +6,10 @@
 [sub_resource type="BoxMesh" id="BoxMesh_bljoq"]
 size = Vector3(2.351, 8.828, 1.872)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_w65vt"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_cw8ws"]
 size = Vector2(100, 100)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xsh4f"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ijlis"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0tpx5"]
@@ -26,8 +26,8 @@ sky = SubResource("Sky_7jw71")
 ambient_light_source = 1
 reflected_light_source = 2
 tonemap_mode = 2
-tonemap_exposure = 0.1
-tonemap_white = 2.23
+tonemap_exposure = 1.18
+tonemap_white = 12.58
 sdfgi_use_occlusion = true
 sdfgi_read_sky_light = false
 glow_intensity = 1.5
@@ -36,10 +36,10 @@ glow_bloom = 0.12
 fog_enabled = true
 fog_light_energy = 0.65
 fog_density = 0.0143
-volumetric_fog_density = 0.0336
+volumetric_fog_density = 0.0189
 volumetric_fog_emission_energy = 0.0
 volumetric_fog_gi_inject = 0.65
-volumetric_fog_detail_spread = 3.86375
+volumetric_fog_detail_spread = 4.39226
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_mbmjt"]
 
@@ -57,13 +57,13 @@ transform = Transform3D(1.61409, 0, 0, 0, 0.72604, 0, 0, 0, 8.93448, -21.236, 1.
 gi_mode = 2
 mesh = SubResource("BoxMesh_bljoq")
 
-[node name="ground plane" type="MeshInstance3D" parent="world"]
-mesh = SubResource("PlaneMesh_w65vt")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world"]
+mesh = SubResource("PlaneMesh_cw8ws")
 
-[node name="StaticBody3d" type="StaticBody3D" parent="world/ground plane"]
+[node name="StaticBody3D" type="StaticBody3D" parent="world/MeshInstance3D"]
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="world/ground plane/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_xsh4f")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ijlis")
 
 [node name="enviroments" type="Node3D" parent="."]
 
@@ -72,6 +72,7 @@ environment = SubResource("Environment_y0ofy")
 camera_attributes = SubResource("CameraAttributesPhysical_mbmjt")
 
 [node name="lights" type="Node3D" parent="."]
+visible = false
 
 [node name="OmniLight3d" type="OmniLight3D" parent="lights"]
 transform = Transform3D(0.998393, -0.0563665, 0.00590846, 0.0566754, 0.992952, -0.104083, 0, 0.104251, 0.994551, -11.4822, 3.8528, 10.9706)
@@ -93,9 +94,17 @@ shadow_blur = 0.0
 spot_range = 48.4384
 spot_angle = 20.2667
 
-[node name="Camera3d" type="Camera3D" parent="."]
+[node name="TestCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, -11.806, 19.6946, 16.3042)
 fov = 52.5
 
-[node name="CharacterBody3d" parent="." instance=ExtResource("2_kw8o3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.084, 1.00157, 3.31284)
+[node name="Player" parent="." instance=ExtResource("2_kw8o3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.084, 1.739, 3.313)
+disable_mode = 2
+
+[node name="SpotLight3d" parent="Player" index="2"]
+light_indirect_energy = 8.523
+light_volumetric_fog_energy = 4.617
+light_specular = 0.0
+
+[editable path="Player"]
