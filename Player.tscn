@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdemr4rw2km8n"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_vmj82"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qbb70"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cgo3k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyio7"]
+albedo_color = Color(0.886275, 0.466667, 0, 1)
+
+[node name="CharacterBody3d" type="CharacterBody3D"]
+script = ExtResource("1_vmj82")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qbb70")
+
+[node name="CsgMesh3d" type="CSGMesh3D" parent="."]
+mesh = SubResource("CapsuleMesh_cgo3k")
+material = SubResource("StandardMaterial3D_nyio7")
+
+[node name="SpotLight3d" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0439094, 0.55783, 0.616529)
+light_energy = 16.0
+light_indirect_energy = 9.344
+light_volumetric_fog_energy = 4.207
+shadow_enabled = true
+shadow_blur = 0.0
+spot_range = 48.4384
+spot_angle = 20.2667
