@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4u0hcdn0ljrc"]
+[gd_scene load_steps=11 format=3 uid="uid://cd5kr3j00jf78"]
 
 [ext_resource type="Texture2D" uid="uid://dh2vit06ecncp" path="res://dikhololo_night_4k.exr" id="1_tpfhn"]
-[ext_resource type="PackedScene" uid="uid://bdemr4rw2km8n" path="res://Player.tscn" id="2_kw8o3"]
+[ext_resource type="PackedScene" uid="uid://biillbeb4kswf" path="res://entities/player/player.tscn" id="2_gtc0b"]
+[ext_resource type="PackedScene" uid="uid://ywurypct7of7" path="res://entities/camera/camera.tscn" id="3_c014t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bljoq"]
 size = Vector3(2.351, 8.828, 1.872)
@@ -23,7 +24,8 @@ background_mode = 1
 background_color = Color(0.0352, 0.09552, 0.16, 1)
 background_energy_multiplier = 0.02
 sky = SubResource("Sky_7jw71")
-ambient_light_source = 1
+ambient_light_source = 3
+ambient_light_energy = 1.57
 reflected_light_source = 2
 tonemap_mode = 2
 tonemap_exposure = 1.18
@@ -46,6 +48,7 @@ volumetric_fog_detail_spread = 4.39226
 [node name="Node3d" type="Node3D"]
 
 [node name="world" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8252, 0, 0)
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="world"]
 transform = Transform3D(1.61409, 0, 0, 0, 0.72604, 0, 0, 0, 8.93448, -2.53072, 1.08132, 3.86742)
@@ -66,17 +69,18 @@ mesh = SubResource("PlaneMesh_cw8ws")
 shape = SubResource("ConcavePolygonShape3D_ijlis")
 
 [node name="enviroments" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8252, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="enviroments"]
 environment = SubResource("Environment_y0ofy")
 camera_attributes = SubResource("CameraAttributesPhysical_mbmjt")
 
 [node name="lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8252, 0, 0)
 visible = false
 
 [node name="OmniLight3d" type="OmniLight3D" parent="lights"]
-transform = Transform3D(0.998393, -0.0563665, 0.00590846, 0.0566754, 0.992952, -0.104083, 0, 0.104251, 0.994551, -11.4822, 3.8528, 10.9706)
-visible = false
+transform = Transform3D(0.998393, -0.0563666, 0.00590847, 0.0566754, 0.992952, -0.104083, 0, 0.104251, 0.994551, -11.4822, 6.03755, 4.69653)
 light_energy = 8.294
 shadow_enabled = true
 shadow_blur = 0.0
@@ -95,16 +99,18 @@ spot_range = 48.4384
 spot_angle = 20.2667
 
 [node name="TestCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, -11.806, 19.6946, 16.3042)
+transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, 1.01924, 19.6946, 16.3042)
+visible = false
 fov = 52.5
 
-[node name="Player" parent="." instance=ExtResource("2_kw8o3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.084, 1.739, 3.313)
-disable_mode = 2
+[node name="Player" parent="." instance=ExtResource("2_gtc0b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141961, 0, 0)
 
-[node name="SpotLight3d" parent="Player" index="2"]
-light_indirect_energy = 8.523
-light_volumetric_fog_energy = 4.617
-light_specular = 0.0
+[node name="Camera" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_c014t")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -0.141961, 0, 0)
+_player = NodePath("../Player")
 
-[editable path="Player"]
+[node name="CameraTransform" parent="Camera" index="0"]
+transform = Transform3D(1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 15, 2)
+
+[editable path="Camera"]

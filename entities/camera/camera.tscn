@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ywurypct7of7"]
+
+[ext_resource type="Script" path="res://entities/camera/scripts/camera.gd" id="1_mei61"]
+
+[node name="Camera" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0)
+script = ExtResource("1_mei61")
+
+[node name="CameraTransform" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 22.1265, 14.9087)
+
+[node name="Camera3D" type="Camera3D" parent="CameraTransform"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
+current = true
+fov = 52.5
+
+[node name="TestCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, 1.01924, 19.6946, 16.3042)
+fov = 52.5
