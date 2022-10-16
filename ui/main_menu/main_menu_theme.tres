@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bclkewcho4rmn"]
+
+[ext_resource type="FontFile" uid="uid://bkysxqd2ordtr" path="res://ui/common/LexendZetta-VariableFont_wght.ttf" id="1_nswr8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nog4t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgdpb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43itl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmron"]
+
+[resource]
+Button/colors/font_focus_color = Color(0.639216, 0.658824, 0.701961, 1)
+Button/colors/font_hover_color = Color(0.639216, 0.658824, 0.701961, 1)
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_nswr8")
+Button/styles/focus = SubResource("StyleBoxEmpty_nog4t")
+Button/styles/hover = SubResource("StyleBoxEmpty_tgdpb")
+Button/styles/normal = SubResource("StyleBoxEmpty_43itl")
+Button/styles/pressed = SubResource("StyleBoxEmpty_kmron")

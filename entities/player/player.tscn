@@ -23,14 +23,16 @@ shape = SubResource("CapsuleShape3D_vee4a")
 [node name="ModelPivot" type="Node3D" parent="."]
 
 [node name="player" parent="ModelPivot" instance=ExtResource("3_gk3pi")]
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ModelPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.981378, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_h8lcq")
 surface_material_override/0 = SubResource("StandardMaterial3D_b4nd6")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 1.7549)
+[node name="SpotLight3D" type="SpotLight3D" parent="ModelPivot"]
+transform = Transform3D(-1, -1.06581e-14, -8.74228e-08, 3.5008e-09, 0.999198, -0.0400446, 8.73527e-08, -0.0400446, -0.999198, 0, 1.28101, 0.64576)
+light_energy = 6.429
+shadow_enabled = true
 spot_range = 4.5929
-spot_angle = 21.5841
+spot_angle = 33.75

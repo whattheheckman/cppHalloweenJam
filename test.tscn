@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dh2vit06ecncp" path="res://dikhololo_night_4k.exr" id="1_tpfhn"]
 [ext_resource type="PackedScene" uid="uid://biillbeb4kswf" path="res://entities/player/player.tscn" id="2_gtc0b"]
 [ext_resource type="PackedScene" uid="uid://ywurypct7of7" path="res://entities/camera/camera.tscn" id="3_c014t"]
-[ext_resource type="PackedScene" path="res://ui/debug/performance_metrics.tscn" id="4_io8gf"]
+[ext_resource type="PackedScene" uid="uid://dbdyya2tdadxg" path="res://ui/debug/performance_metrics.tscn" id="4_io8gf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bljoq"]
 size = Vector3(2.351, 8.828, 1.872)

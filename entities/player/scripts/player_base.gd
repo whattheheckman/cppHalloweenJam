@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @onready var _model_pivot: Node3D = $ModelPivot
 
+
 const PI_HALF := PI/2
 
 
@@ -14,7 +15,6 @@ var _direction := Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
 	character_movement(delta)
-
 
 
 func character_movement(delta: float) -> void:
