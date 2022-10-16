@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @onready var _model_pivot: Node3D = $ModelPivot
 
+var battery_left
 
 const PI_HALF := PI/2
 
@@ -15,6 +16,8 @@ var _direction := Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
 	character_movement(delta)
+	battery_left = ((($Timer.time_left/6000) / 10) * .2)
+	print_debug(battery_left)
 
 
 func character_movement(delta: float) -> void:

@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://5b082piuxqtx"]
+
+[ext_resource type="Theme" uid="uid://bclkewcho4rmn" path="res://ui/main_menu/main_menu_theme.tres" id="1_tekbr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -98.0
+offset_right = 141.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tekbr")
+bbcode_enabled = true
+text = "Your phone died.
+
+You are [u]lost.[/u]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -67.0
+offset_top = -211.0
+offset_right = 67.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+offset_right = 134.0
+offset_bottom = 23.0
+focus_neighbor_top = NodePath("../QuitButton")
+theme = ExtResource("1_tekbr")
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+offset_top = 27.0
+offset_right = 134.0
+offset_bottom = 50.0
+focus_neighbor_bottom = NodePath("../StartButton")
+theme = ExtResource("1_tekbr")
+text = "Quit"

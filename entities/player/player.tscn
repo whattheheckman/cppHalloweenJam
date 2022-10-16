@@ -36,3 +36,9 @@ light_energy = 12.857
 shadow_enabled = true
 spot_range = 5.22899
 spot_angle = 32.5188
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 60000.0
+one_shot = true
+autostart = true
