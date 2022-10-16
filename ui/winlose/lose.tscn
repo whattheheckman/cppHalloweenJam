@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://5b082piuxqtx"]
+[gd_scene load_steps=3 format=3 uid="uid://5b082piuxqtx"]
 
+[ext_resource type="Script" path="res://ui/winlose/lose.gd" id="1_l0lp3"]
 [ext_resource type="Theme" uid="uid://bclkewcho4rmn" path="res://ui/main_menu/main_menu_theme.tres" id="1_tekbr"]
 
 [node name="Control" type="Control"]
@@ -9,8 +10,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l0lp3")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -36,6 +40,7 @@ text = "Your phone died.
 You are [u]lost.[/u]"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -48,6 +53,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 offset_right = 134.0
 offset_bottom = 23.0
 focus_neighbor_top = NodePath("../QuitButton")
@@ -55,9 +61,13 @@ theme = ExtResource("1_tekbr")
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 offset_top = 27.0
 offset_right = 134.0
 offset_bottom = 50.0
 focus_neighbor_bottom = NodePath("../StartButton")
 theme = ExtResource("1_tekbr")
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

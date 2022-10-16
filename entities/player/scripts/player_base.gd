@@ -18,7 +18,8 @@ func _physics_process(delta: float) -> void:
 	character_movement(delta)
 	battery_left = ((($Timer.time_left/6000) / 10) * .2)
 	print_debug(battery_left)
-
+	if battery_left <= 0:
+		get_tree().change_scene_to_file("res://ui/winlose/lose.tscn")
 
 func character_movement(delta: float) -> void:
 	# Add the gravity.
