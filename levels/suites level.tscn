@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpe2u8xbbwq8c"]
+
+[ext_resource type="PackedScene" uid="uid://dpcntoblct87y" path="res://levels/suites+bric.tscn" id="1_sq563"]
+[ext_resource type="Texture2D" uid="uid://dh2vit06ecncp" path="res://dikhololo_night_4k.exr" id="2_h1d3h"]
+[ext_resource type="PackedScene" uid="uid://ywurypct7of7" path="res://entities/camera/camera.tscn" id="3_goxfx"]
+[ext_resource type="PackedScene" uid="uid://dbdyya2tdadxg" path="res://ui/debug/performance_metrics.tscn" id="4_pd1sm"]
+[ext_resource type="PackedScene" uid="uid://biillbeb4kswf" path="res://entities/player/player.tscn" id="5_8kwo0"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g1yyd"]
+panorama = ExtResource("2_h1d3h")
+
+[sub_resource type="Sky" id="Sky_7jw71"]
+sky_material = SubResource("PanoramaSkyMaterial_g1yyd")
+
+[sub_resource type="Environment" id="Environment_q7lxs"]
+background_mode = 1
+background_color = Color(0.0352, 0.09552, 0.16, 1)
+background_energy_multiplier = 0.02
+sky = SubResource("Sky_7jw71")
+ambient_light_source = 3
+ambient_light_energy = 1.57
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 1.18
+tonemap_white = 12.58
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+glow_intensity = 1.5
+glow_strength = 0.81
+glow_bloom = 0.12
+fog_enabled = true
+fog_light_color = Color(0.403922, 0.435294, 0.498039, 1)
+fog_light_energy = 0.57
+fog_density = 0.022
+volumetric_fog_density = 0.0189
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.65
+volumetric_fog_detail_spread = 4.39226
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_wvwk5"]
+
+[node name="Node3d" type="Node3D"]
+
+[node name="suites+bric" parent="." instance=ExtResource("1_sq563")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q7lxs")
+camera_attributes = SubResource("CameraAttributesPhysical_wvwk5")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_goxfx")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -0.141961, 0, 0)
+smothiness = 0.05
+_player = NodePath("../Player")
+
+[node name="PerformanceMetrics" parent="Camera" instance=ExtResource("4_pd1sm")]
+
+[node name="Player" parent="." instance=ExtResource("5_8kwo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141961, 7.39955, 0)
+
+[node name="CollisionShape3D" parent="Player" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+
+[editable path="Camera"]
+[editable path="Player"]

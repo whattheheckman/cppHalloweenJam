@@ -26,14 +26,14 @@ data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0,
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0tpx5"]
 panorama = ExtResource("1_tpfhn")
 
-[sub_resource type="Sky" id="Sky_7jw71"]
+[sub_resource type="Sky" id="Sky_dmd3v"]
 sky_material = SubResource("PanoramaSkyMaterial_0tpx5")
 
 [sub_resource type="Environment" id="Environment_y0ofy"]
 background_mode = 1
 background_color = Color(0.0352, 0.09552, 0.16, 1)
 background_energy_multiplier = 0.02
-sky = SubResource("Sky_7jw71")
+sky = SubResource("Sky_dmd3v")
 ambient_light_source = 3
 ambient_light_energy = 1.57
 reflected_light_source = 2
@@ -125,9 +125,6 @@ transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, 1.
 visible = false
 fov = 52.5
 
-[node name="Player" parent="." instance=ExtResource("2_gtc0b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141961, 0, 0)
-
 [node name="Camera" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_c014t")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -0.141961, 0, 0)
 smothiness = 0.05
@@ -135,5 +132,8 @@ _player = NodePath("../Player")
 
 [node name="PerformanceMetrics" parent="Camera" instance=ExtResource("4_io8gf")]
 
-[editable path="Player"]
+[node name="Player" parent="." instance=ExtResource("2_gtc0b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141961, 0, 0)
+
 [editable path="Camera"]
+[editable path="Player"]
