@@ -14,7 +14,6 @@ grow_vertical = 2
 script = ExtResource("1_6r22j")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,7 +23,6 @@ color = Color(0.188235, 0.188235, 0.188235, 0.839216)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 process_mode = 3
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -35,7 +33,6 @@ offset_bottom = -13.0
 grow_vertical = 0
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
 offset_right = 134.0
 offset_bottom = 23.0
 focus_neighbor_top = NodePath("../QuitButton")
@@ -44,14 +41,12 @@ text = "Start"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 visible = false
-layout_mode = 2
 offset_top = 35.0
 offset_right = 134.0
 offset_bottom = 66.0
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
 offset_top = 27.0
 offset_right = 134.0
 offset_bottom = 50.0
@@ -60,7 +55,6 @@ theme = ExtResource("2_7alhe")
 text = "Quit"
 
 [node name="Instructions" type="RichTextLabel" parent="."]
-layout_mode = 0
 offset_left = 430.0
 offset_top = 33.0
 offset_right = 753.0
@@ -68,7 +62,6 @@ offset_bottom = 67.0
 text = "You're lost. Find your way home in the..."
 
 [node name="Title" type="RichTextLabel" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

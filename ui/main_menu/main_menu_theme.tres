@@ -30,6 +30,6 @@ Button/styles/hover = SubResource("StyleBoxFlat_y73c5")
 Button/styles/normal = SubResource("StyleBoxFlat_8brjd")
 Button/styles/pressed = SubResource("StyleBoxEmpty_kmron")
 RichTextLabel/colors/font_shadow_color = Color(0.203922, 0.203922, 0.203922, 0.87451)
-RichTextLabel/constants/outline_size = 8
+RichTextLabel/constants/outline_size = 3
 RichTextLabel/font_sizes/normal_font_size = 64
 RichTextLabel/fonts/normal_font = ExtResource("2_6nw13")
