@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cd5kr3j00jf78"]
+[gd_scene load_steps=15 format=3 uid="uid://cd5kr3j00jf78"]
 
 [ext_resource type="Texture2D" uid="uid://dh2vit06ecncp" path="res://dikhololo_night_4k.exr" id="1_tpfhn"]
 [ext_resource type="PackedScene" uid="uid://biillbeb4kswf" path="res://entities/player/player.tscn" id="2_gtc0b"]
@@ -16,6 +16,9 @@ data = PackedVector3Array(-1.1755, 4.414, 0.936, 1.1755, 4.414, 0.936, -1.1755, 
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cw8ws"]
 size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3h7n"]
+metallic_specular = 1.0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ijlis"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
@@ -80,6 +83,7 @@ shape = SubResource("ConcavePolygonShape3D_nivmy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="world"]
 mesh = SubResource("PlaneMesh_cw8ws")
+surface_material_override/0 = SubResource("StandardMaterial3D_i3h7n")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="world/MeshInstance3D"]
 
@@ -123,11 +127,6 @@ fov = 52.5
 
 [node name="Player" parent="." instance=ExtResource("2_gtc0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141961, 0, 0)
-
-[node name="SpotLight3D" parent="Player" index="2"]
-shadow_enabled = true
-spot_range = 8.0767
-spot_angle = 51.5985
 
 [node name="Camera" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_c014t")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -0.141961, 0, 0)

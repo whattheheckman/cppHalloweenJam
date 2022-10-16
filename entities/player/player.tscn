@@ -31,8 +31,8 @@ mesh = SubResource("CapsuleMesh_h8lcq")
 surface_material_override/0 = SubResource("StandardMaterial3D_b4nd6")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="ModelPivot"]
-transform = Transform3D(-1, -1.06581e-14, -8.74228e-08, 3.5008e-09, 0.999198, -0.0400446, 8.73527e-08, -0.0400446, -0.999198, 0, 1.28101, 0.64576)
-light_energy = 6.429
+transform = Transform3D(-1, -8.65992e-15, -8.74228e-08, 1.34981e-08, 0.988008, -0.1544, 8.63745e-08, -0.1544, -0.988008, 0, 1.28101, 0.64576)
+light_energy = 12.857
 shadow_enabled = true
-spot_range = 4.5929
-spot_angle = 33.75
+spot_range = 5.22899
+spot_angle = 32.5188
