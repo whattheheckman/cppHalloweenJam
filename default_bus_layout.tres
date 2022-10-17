@@ -1,24 +1,32 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bdu811tq48efl"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bdu811tq48efl"]
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_qrphw"]
 resource_name = "Limiter"
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_goal4"]
+resource_name = "Reverb"
+room_size = 1.0
+damping = 0.9
+wet = 0.4
+
 [resource]
-bus/0/volume_db = -1.51925
+bus/0/volume_db = 5.4245
 bus/0/effect/0/effect = SubResource("AudioEffectLimiter_qrphw")
 bus/0/effect/0/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = 0.0
+bus/1/volume_db = 4.23351
 bus/1/send = &"Master"
 bus/2/name = &"Rain"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = 0.0
+bus/2/volume_db = 3.83799
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_goal4")
+bus/2/effect/0/enabled = true
 bus/3/name = &"Sound Effects"
 bus/3/solo = false
 bus/3/mute = false

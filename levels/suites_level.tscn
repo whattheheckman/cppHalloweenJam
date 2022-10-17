@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpe2u8xbbwq8c"]
+[gd_scene load_steps=15 format=3 uid="uid://dpe2u8xbbwq8c"]
 
-[ext_resource type="PackedScene" uid="uid://dpcntoblct87y" path="res://levels/suites+bric.tscn" id="1_sq563"]
+[ext_resource type="PackedScene" uid="uid://6r0c2aabr7tn" path="res://levels/suites+bric.tscn" id="1_sq563"]
 [ext_resource type="Texture2D" uid="uid://dh2vit06ecncp" path="res://dikhololo_night_4k.exr" id="2_h1d3h"]
+[ext_resource type="Script" path="res://levels/Goal.gd" id="2_ke8po"]
 [ext_resource type="PackedScene" uid="uid://ywurypct7of7" path="res://entities/camera/camera.tscn" id="3_goxfx"]
 [ext_resource type="PackedScene" uid="uid://dbdyya2tdadxg" path="res://ui/debug/performance_metrics.tscn" id="4_pd1sm"]
 [ext_resource type="PackedScene" uid="uid://biillbeb4kswf" path="res://entities/player/player.tscn" id="5_8kwo0"]
+[ext_resource type="AudioStream" uid="uid://c6jkpa4avv0g0" path="res://sound/music/mistyfull.mp3" id="7_mqbpu"]
+[ext_resource type="Script" path="res://levels/Audio.gd" id="7_wquvt"]
+[ext_resource type="AudioStream" uid="uid://cjw2adexvxnrr" path="res://sound/518863__idomusics__rain.wav" id="8_eoipk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g1yyd"]
 panorama = ExtResource("2_h1d3h")
@@ -39,13 +43,16 @@ volumetric_fog_detail_spread = 4.39226
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_wvwk5"]
 
-[node name="Node3d" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_lodar"]
+size = Vector3(7.53392, 10.9749, 4.90908)
 
-[node name="suites+bric" parent="." instance=ExtResource("1_sq563")]
+[node name="Node3d" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q7lxs")
 camera_attributes = SubResource("CameraAttributesPhysical_wvwk5")
+
+[node name="suites+bric" parent="." instance=ExtResource("1_sq563")]
 
 [node name="Camera" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_goxfx")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -0.141961, 0, 0)
@@ -55,7 +62,32 @@ _player = NodePath("../Player")
 [node name="PerformanceMetrics" parent="Camera" instance=ExtResource("4_pd1sm")]
 
 [node name="Player" parent="." instance=ExtResource("5_8kwo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141961, 7.39955, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269.371, 18.6045, -161.933)
+
+[node name="Goal" type="Area3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 10, 11)
+script = ExtResource("2_ke8po")
+player = NodePath("../Player")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Goal"]
+transform = Transform3D(0.757143, 0, -0.653249, 0, 1, 0, 0.653249, 0, 0.757143, 10.2279, 3.45182, 0.0286837)
+shape = SubResource("BoxShape3D_lodar")
+
+[node name="Audio" type="Node" parent="."]
+script = ExtResource("7_wquvt")
+
+[node name="Rain" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("8_eoipk")
+autoplay = true
+
+[node name="Start music" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_mqbpu")
+autoplay = true
+bus = &"Music"
+
+[node name="end music" type="AudioStreamPlayer2D" parent="Audio"]
+
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_goal_body_entered"]
 
 [editable path="Camera"]
 [editable path="Player"]
