@@ -24,6 +24,8 @@ Tools used
 
 [@pimentahq/third-person-cb3d](https://github.com/pimentahq/third-person-cb3d)
 
+[Rain Sound effect](https://freesound.org/people/idomusics/sounds/518863/)
+
 Tutorials followed
 
 [Godot Basics: Timer &amp; Node Signals - YouTube](https://www.youtube.com/watch?v=LTXEAnB2G5w)
